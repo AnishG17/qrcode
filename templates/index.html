@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+{% comment %} <title>title</title> {% endcomment %}
+<title>QRCodes</title>
+</head>
+<body style="background-color: 	#808080">
+    <div>
+        <center>
+        <form action="/send" method="post">
+            {% csrf_token %}
+            {% comment %} <h3 id="h1">Enter Data For Generating QR Code <input type="text" name="data" ></h3> {% endcomment %}
+             <p>
+                <label style="font-family: 'courier' ; font-size:25px ; font-weight:bold;text-shadow: 5px 5px 8px white;">Enter Your Data Below</label>
+                <p></p>
+                <textarea class="form-control" cols="30" rows="3" id="comment" name="data"></textarea>
+                <p></p>
+                </p> 
+                {% comment %} <input type="submit" value="SUBMIT"> {% endcomment %}
+                <button style="background-color:#808080 ; border: 2px solid #000000 ; padding:10px 15px ; font-family:'courier' ; font-weight:bold" type="submit">Submit</button>
+        </form>
+    </center>
+    </div>
+    <div>
+        <center>
+        {% if data %}
+        {% comment %} <h4>Your QR Code is:</h4> {% endcomment %}
+        <h4 style="font-family:'courier'; font-size:20px ; font-weight:bold ; text-shadow: 5px 5px 8px white ">Your QR Code</h4>
+            <img src="{% static 'image/test.png' %}">
+        {% endif %}
+        </center>
+    </div>
+</body></html>
